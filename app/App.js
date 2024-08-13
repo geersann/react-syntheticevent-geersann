@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-
 import Task2 from "./Task2";
 
 export default class App extends Component {
@@ -12,9 +11,8 @@ export default class App extends Component {
     }
 
     toggleList = () => {
-        this.setState({showList: !this.state.showList});
+        this.setState(prevState => ({ showList: !prevState.showList }));
     }
-
 
     render() {
         const { showList } = this.state;
@@ -24,11 +22,11 @@ export default class App extends Component {
                 <div className="row">
                     <div className="col">
                         <button onClick={this.toggleList}>
-                            button 
+                            Button
                         </button>
+                        <Task2 isListVisible={showList} />
                     </div>
                 </div>
-                <Task2/>
             </Fragment>
         );
     }

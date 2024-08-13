@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const outputPathDir = 'build';
 
@@ -24,6 +24,10 @@ const webpackConfig = {
                         cacheDirectory: true
                     }
                 }
+            },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
             },
         ]
     },
