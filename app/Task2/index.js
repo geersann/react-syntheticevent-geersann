@@ -23,26 +23,24 @@ export default class Task2 extends Component {
     };
 
     render() {
-        const { isListVisible } = this.props;
+        const {list, text} = this.state;
 
         return (
             <div>
-                {isListVisible && (
-                    <ul>
-                        {this.state.list.map(item => (
-                            <li
-                                key={item.id}
-                                className="element"
-                                onMouseEnter={() => this.handleMouseEnter(item.text)}
-                                onMouseLeave={this.handleMouseLeave}
-                            >
-                                {item.id}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                <ul>
+                    {list.map(item => (
+                        <li
+                            key={item.id}
+                            className="element"
+                            onMouseEnter={() => this.handleMouseEnter(item.text)}
+                            onMouseLeave={this.handleMouseLeave}
+                        >
+                            id - {item.id}
+                        </li>
+                    ))}
+                </ul>
                 <div data-testid="text">
-                    {this.state.text}
+                    {text}
                 </div>
             </div>
         );
